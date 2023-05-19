@@ -113,47 +113,40 @@ git add -p
 
 You'll also see a prompt that reads something like `Stage this hunk [y,n,q,a,d,j,J,g,/,s,e,?]?`. Here's what these options mean:
 
-- `y`: Stage this hunk for the next commit.
-- `n`: Do not stage this hunk.
-- `q`: Quit; do not stage this hunk or any of the remaining ones.
-- `a`: Stage this hunk and all later hunks in the file.
-- `d`: Do not stage this hunk or any of the later hunks in the file.
-- `j`: Leave this hunk undecided, see next undecided hunk.
-- `J`: Leave this hunk undecided, see next hunk.
-- `g`: Select a hunk to go to.
-- `/`: Search for a hunk matching the given regex.
-- `s`: Split the current hunk into smaller hunks, if possible.
-- `e`: Manually edit the current hunk.
-- `?`: Print help.
+  - y: stage this hunk
+  - n: do not stage this hunk
+  - q: quit; do not stage this hunk or any of the remaining ones
+  - a: stage this hunk and all later hunks in the file
+  - d: do not stage this hunk or any of the later hunks in the file
+  - e: manually edit the current hunk
+  - ?: print help
 
-Now that our change has been stage we can commit our change. we can provide a commit message using the message flag`-m` 
+Now that our change has been staged we can commit it. we can provide a commit message using the flag `-m`:
 
 ```shell
 git commit -m "A short message about our change"
 ```
 
-or if you leave off the message flag and git will open a text editor for you to add a message the advantage of this way 
-is that you can add a multi-line message.
+or if you leave off the message flag, git will open a text editor for you to add a message -- the advantage of this approach is that you can add a *multi-line* message.
 
 ```shell
 git commit
 ```
 
 I recommend you read this [article](https://cloudnative.ly/what-does-a-good-commit-message-look-like-89ba44e364e0) on
-What does a good commit message look like.
+What a good commit message looks like.
 
-once you have commited your changes we can now push them up to GitHub
+once you have commited your changes we can now push them up to GitHub:
 
 ```shell
 git push origin main
 ```
 
-if you remove some of the lines you added to the README and check the diff you can see how git show changes where code 
-is removed from a file
+If you remove some of the lines you added to the README and check the diff, you can see how git shows us the changes to the code:
 
 ![](resources/diff_2.png)
 
-we are not going to keep these changes so we will use the **restore** command to remove the changes we have just made
+We are not going to keep these changes so we will use the **restore** command to remove the changes we have just made
 
 ```shell
 git restore README.md
