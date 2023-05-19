@@ -7,29 +7,33 @@
 
 ## Activity
 
-This is a short exercise to get you used to using Git to perform simple operation such as: cloning, staging, commiting,
-pushing, Pull/Merge Requests and rebasing.
+This is a short exercise to get you used to using Git to perform simple operation such as:  
+  - cloning
+  - staging 
+  - commiting
+  - pushing/pulling
+  - Pull Requests
+  - rebasing
 
 You can find an example repo of this activity [here](https://github.com/braddle/git-practice)
 
 ### Creating a new Repository
 
-Locate the + button to create new things at the top right of the screen and click New Repository
+Locate the + button to create new things at the top right of the screen and click New Repository.
 
 ![Create new dropdown](resources/new_dropdown.png)
 
-Create a new repository call `git-practice`, add a README and Licence.
+Create a new repository called `git-practice`, add a README and Licence.
 
 ![](resources/create_repository.png)
 
-Once you have created your repository it should look something like this.
+Once you have created your repository it should look something like this:
 
 ![](resources/new_respository.png)
 
 ### Cloning the Repository
 
-To edit the code in our repository we need to **clone** it. `git clone` create a directory for the code and downloads 
-the code from the repository into the new directory. We will now **clone** our new repository.
+To edit the code in our repository we need to **clone** it. `git clone` creates a directory for the code and downloads it from the repository into the new directory. We will now **clone** our new repository to our local machine:
 
 ```shell
 git clone git@github.com:{YOUR_GITHUB_USERNAME}/git-practice.git
@@ -39,8 +43,7 @@ You should see something like this
 
 ![](resources/clone.png)
 
-If you move into the newly create directory and check its status. The `git status` command show the current state of 
-working tree. Showing files that have been added, modified and deleted.
+Move into the newly created directory and check its status. The `git status` command shows the current state of the working tree, showing files that have been added, modified and deleted.
 
 ```shell
 cd git-practice
@@ -51,7 +54,7 @@ git status
 
 ### Editing an existing file
 
-Open README.md in you IDE and add some new content the file under the existing content. For example:
+Open README.md in you IDE and add some new content to the file under the existing content. For example:
 
 ```markdown
 ### About Me
@@ -64,19 +67,19 @@ Open README.md in you IDE and add some new content the file under the existing c
   - Golang
 ```
 
-If you check the status of for local repository
+If you check the status of your local repository
 
 ```shell
 git status
 ```
 
-you should have one changed file where the changes have not yet been staged.
+you should have one changed file where the changes have not yet been staged (red).
 
 If you were to commit at this point nothing would be committed because no of the changes have been staged.
 
 ![](resources/status_2.png)
 
-you can see what has been changed by checking the **diff**. It shows all the lines of code we added to our README
+you can see what has been changed by checking the **diff**. It shows all the lines of code that have been changed and then staged -- in this case, the lines we added to our README.
 
 ```shell
 git diff
@@ -84,22 +87,21 @@ git diff
 
 ![](resources/diff_1.png)
 
-If we want to commit the change and push it back to GitHub we first have to stage the change using the **add** command
-there are few ways we can do this.
+If we want to commit the change and push it back to GitHub we first have to stage the change using the **add** command. There are few ways we can do this.
 
-The first will stage all un-staged changes 
+The first will stage all un-staged changes:
 
 ```shell
 git add .
 ```
 
-This will stage a specific file
+This will stage a specific file:
 
 ```shell
 git add README.md
 ```
 
-or you can check the patch and stage just the change parts you want
+or you can selectively stage only certain portions of the changes you've made by using the patch mode, via the `-p` flag:
 
 ```shell
 git add -p
@@ -108,6 +110,21 @@ git add -p
 ![](resources/add-p.png)
 
 ![](resources/status_3.png)
+
+You'll also see a prompt that reads something like `Stage this hunk [y,n,q,a,d,j,J,g,/,s,e,?]?`. Here's what these options mean:
+
+- `y`: Stage this hunk for the next commit.
+- `n`: Do not stage this hunk.
+- `q`: Quit; do not stage this hunk or any of the remaining ones.
+- `a`: Stage this hunk and all later hunks in the file.
+- `d`: Do not stage this hunk or any of the later hunks in the file.
+- `j`: Leave this hunk undecided, see next undecided hunk.
+- `J`: Leave this hunk undecided, see next hunk.
+- `g`: Select a hunk to go to.
+- `/`: Search for a hunk matching the given regex.
+- `s`: Split the current hunk into smaller hunks, if possible.
+- `e`: Manually edit the current hunk.
+- `?`: Print help.
 
 Now that our change has been stage we can commit our change. we can provide a commit message using the message flag`-m` 
 
