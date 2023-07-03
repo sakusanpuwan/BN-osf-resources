@@ -8,8 +8,8 @@ We are going to create a simple bank account application
 
 - Ensure you have **openjdk 16+** installed
 - Open a terminal and navigate into the **003-BDD** directory: `cd 003-BDD`
-- Run `./mvnw clean install` to install the dependencies
-- Run the application `./mvnw spring-boot:run`
+- Run `.\mvnw clean install` to install the dependencies
+- Run the application `.\mvnw spring-boot:run`
 - Ensure you can visit the application in the browser `http://localhost:8080/search/a`
 - You should see two results with first names that begin with 'a'.
 
