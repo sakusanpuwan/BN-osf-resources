@@ -1,4 +1,4 @@
-package java.com.example.demo;
+package com.example.demo;
 
 import com.example.demo.fizzbuzz.FizzBuzz;
 import com.example.demo.fizzbuzz.FizzBuzzService;

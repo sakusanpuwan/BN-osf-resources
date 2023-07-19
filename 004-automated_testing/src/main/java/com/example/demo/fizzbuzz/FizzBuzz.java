@@ -1,4 +1,4 @@
-package java.com.example.demo.fizzbuzz;
+package com.example.demo.fizzbuzz;
 
 public class FizzBuzz {
     private final String input;
