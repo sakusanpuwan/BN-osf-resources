@@ -84,5 +84,74 @@ class FizzBuzzSeleniumTests {
         assertEquals(expectedRules, actualRules);
     }
 
+    @Test
+    void testInvalidInput(){
+        driver.get(this.base + "/fizzbuzz");
+
+        String expectedInvalidInput = "4";
+
+        WebElement numberInput = driver.findElement(By.id("fbinput"));
+        numberInput.sendKeys(expectedInvalidInput);
+
+        WebElement enterButton = driver.findElement(By.id("button-addon2"));
+        enterButton.click();
+
+        WebElement result = driver.findElement(By.id("result"));
+        String actualInvalidInput = result.getText();
+
+        assertEquals(expectedInvalidInput,actualInvalidInput);
+
+
+    }
+
+    @Test
+    void testValidInputs()   {
+        driver.get(this.base + "/fizzbuzz");
+
+        String input = "3";
+        String expectedResult = "fizz";
+
+        WebElement numberInput = driver.findElement(By.id("fbinput"));
+        numberInput.sendKeys(input);
+
+        WebElement enterButton = driver.findElement(By.id("button-addon2"));
+        enterButton.click();
+
+        WebElement result = driver.findElement(By.id("result"));
+        String actualResult = result.getText();
+
+        assertEquals(expectedResult,actualResult);
+
+        input = "5";
+        expectedResult = "buzz";
+
+        numberInput = driver.findElement(By.id("fbinput"));
+        numberInput.sendKeys(input);
+
+        enterButton = driver.findElement(By.id("button-addon2"));
+        enterButton.click();
+
+        result = driver.findElement(By.id("result"));
+        actualResult = result.getText();
+
+        assertEquals(expectedResult,actualResult);
+
+        input = "15";
+        expectedResult = "fizzbuzz";
+
+        numberInput = driver.findElement(By.id("fbinput"));
+        numberInput.sendKeys(input);
+
+        enterButton = driver.findElement(By.id("button-addon2"));
+        enterButton.click();
+
+        result = driver.findElement(By.id("result"));
+        actualResult = result.getText();
+
+        assertEquals(expectedResult,actualResult);
+
+
+    }
+
 
 }
