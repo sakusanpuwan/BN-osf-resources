@@ -108,47 +108,24 @@ class FizzBuzzSeleniumTests {
     void testValidInputs()   {
         driver.get(this.base + "/fizzbuzz");
 
-        String input = "3";
-        String expectedResult = "fizz";
+        List<String> expectedResults = Arrays.asList("fizz","buzz","fizzbuzz");
+        String[] inputNumbers = {"3","5","15"};
+        List<String> actualResults = new ArrayList<>();
 
-        WebElement numberInput = driver.findElement(By.id("fbinput"));
-        numberInput.sendKeys(input);
 
-        WebElement enterButton = driver.findElement(By.id("button-addon2"));
-        enterButton.click();
+        for (String input: inputNumbers){
+            WebElement numberInput = driver.findElement(By.id("fbinput"));
+            numberInput.sendKeys(input);
 
-        WebElement result = driver.findElement(By.id("result"));
-        String actualResult = result.getText();
+            WebElement enterButton = driver.findElement(By.id("button-addon2"));
+            enterButton.click();
 
-        assertEquals(expectedResult,actualResult);
+            WebElement result = driver.findElement(By.id("result"));
+            String actualResult = result.getText();
+            actualResults.add(actualResult);
+        }
 
-        input = "5";
-        expectedResult = "buzz";
-
-        numberInput = driver.findElement(By.id("fbinput"));
-        numberInput.sendKeys(input);
-
-        enterButton = driver.findElement(By.id("button-addon2"));
-        enterButton.click();
-
-        result = driver.findElement(By.id("result"));
-        actualResult = result.getText();
-
-        assertEquals(expectedResult,actualResult);
-
-        input = "15";
-        expectedResult = "fizzbuzz";
-
-        numberInput = driver.findElement(By.id("fbinput"));
-        numberInput.sendKeys(input);
-
-        enterButton = driver.findElement(By.id("button-addon2"));
-        enterButton.click();
-
-        result = driver.findElement(By.id("result"));
-        actualResult = result.getText();
-
-        assertEquals(expectedResult,actualResult);
+        assertEquals(expectedResults,actualResults);
 
 
     }
